@@ -1,0 +1,19 @@
+{
+    "name": "r3alst/laravel-magento2-connector",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "R3alst\\LaravelMagentoTwoConnector\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ameer Hamza",
+            "email": "r3alst@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-oauth": "*"
+    }
+}
