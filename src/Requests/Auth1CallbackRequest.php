@@ -3,6 +3,7 @@
 namespace R3alst\LaravelMagentoTwoConnector\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 
 class Auth1CallbackRequest extends FormRequest
 {
