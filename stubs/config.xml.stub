@@ -1,0 +1,7 @@
+<integrations>
+    <integration name="{{integrationName}}">
+        <email>{{contactEmail}}</email>
+        <endpoint_url>{{endpointUrl}}</endpoint_url>
+        <identity_link_url>{{identityUrl}}</identity_link_url>
+    </integration>
+</integrations>
