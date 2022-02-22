@@ -3,7 +3,7 @@
 namespace R3alst\LaravelMagentoTwoConnector\Console\Commands;
 
 use Illuminate\Console\Command;
-use R3alst\LaravelMagentoTwoConnector\Helper\Magento2Helper;
+use R3alst\LaravelMagentoTwoConnector\Facades\Magento2Helper;
 
 class GenerateMagentoModuleCommand extends Command
 {
@@ -39,8 +39,6 @@ class GenerateMagentoModuleCommand extends Command
      */
     public function handle()
     {
-        /** @var Magento2Helper $magento2Helper */
-        $magento2Helper = app()->make(Magento2Helper::class);
 
         $options = [
             "vendor" => $this->ask("Please enter Vendor name: ", "R3alst"),
@@ -56,14 +54,14 @@ class GenerateMagentoModuleCommand extends Command
                 break;
             }
             if($resource === "d") {
-                $resourcesList = $magento2Helper->getDefaultAcl();
+                $resourcesList = Magento2Helper::getDefaultAcl();
                 break;
             }
             $resourcesList[] = $resource;
         }
         $options["resourcesList"] = $resourcesList;
 
-        $zipFileName = $magento2Helper->createModuleFromOptions($options);
+        $zipFileName = Magento2Helper::createModuleFromOptions($options);
 
         echo "Module generated (" . $zipFileName . ")\n";
         return 0;
