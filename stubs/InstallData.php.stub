@@ -1,0 +1,40 @@
+<?php
+namespace {{vendor}}\{{moduleName}}\Setup;
+
+use Magento\Framework\Setup\ModuleContextInterface;
+use Magento\Framework\Setup\ModuleDataSetupInterface;
+use Magento\Integration\Model\ConfigBasedIntegrationManager;
+use Magento\Framework\Setup\InstallDataInterface;
+use Magento\Integration\Model\ConsolidatedConfig;
+
+class InstallData implements InstallDataInterface
+{
+    /**
+     * @var ConfigBasedIntegrationManager
+     */
+
+    private $integrationManager;
+
+    /**
+     * @var ConsolidatedConfig
+     */
+    private $integrationConfig;
+    /**
+     * @param ConfigBasedIntegrationManager $integrationManager
+     */
+
+    public function __construct(ConfigBasedIntegrationManager $integrationManager, ConsolidatedConfig $integrationConfig)
+    {
+        $this->integrationManager = $integrationManager;
+        $this->integrationConfig = $integrationConfig;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+
+    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
+    {
+        $this->integrationManager->processIntegrationConfig(["{{integrationName}}"]);
+    }
+}
