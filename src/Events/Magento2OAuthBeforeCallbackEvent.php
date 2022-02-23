@@ -2,7 +2,6 @@
 namespace R3alst\LaravelMagentoTwoConnector\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
-use Magento\Tests\NamingConvention\true\string;
 
 class Magento2OAuthBeforeCallbackEvent
 {
